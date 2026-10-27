@@ -244,7 +244,7 @@ class DigitestDebug extends CMSPlugin {
 		$contenuto .= '<br />Page Title Extended = ' . $checkExt('plugin', 'page_title_extended');
 		$contenuto .= '<br />Cookies Policy 357 = ' . $checkExt('plugin', 'cookiespolicynotificationbar');
 		$contenuto .= '<br />Digitest Debug = ' . $checkExt('plugin', 'digitestdebug');
-		$contenuto .= '<br />Admin Secure = ' . $checkExt('plugin', 'digisecure');
+		$contenuto .= '<br />Digitest Secure = ' . $checkExt('plugin', 'digisecure');
 		$contenuto .= '<br />Akeeba BKP = ' . $checkExt('component', 'com_akeebabackup');
 		$contenuto .= '<br />Engage Box = ' . $checkExt('component', 'com_rstbox');
 		$contenuto .= '<br />Convert Form = ' . $checkExt('component', 'com_convertforms');
@@ -298,7 +298,29 @@ class DigitestDebug extends CMSPlugin {
 		$styleTag = '<style type="text/css">' . $style . '</style>';
 
 		// Retrieve the HTML of the page
-		$html = $app->getBody();
+		$html = $app->getBody();		
+		
+		// --- AGGIUNTA: Iniezione dello script MIME Debug ---
+        if ($this->params->get('check_missing_assets', 0) == 1) {
+            $debugScript = "<script>
+            window.addEventListener('error', function(event) {
+                var target = event.target || event.srcElement;
+                var isResourceError = target instanceof HTMLScriptElement || 
+                                      target instanceof HTMLLinkElement || 
+                                      target instanceof HTMLImageElement;
+                if (isResourceError) {
+                    console.error('%c[DigitestDebug] Risorsa mancante o bloccata (MIME):', 'background: #d9534f; color: white; padding: 2px 6px; font-weight: bold; border-radius: 3px;', {
+                        tipoTag: target.tagName,
+                        urlFallito: target.src || target.href
+                    });
+                }
+            }, true);
+            </script>";
+
+            $styleTag = $debugScript . $styleTag;
+        }
+		// --------------------------------------------------		
+		
 
 		// Injecting the STYLE into the <head> (if present)
 		if (str_contains($html, '</head>')) {
