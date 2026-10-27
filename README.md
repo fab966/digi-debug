@@ -1,6 +1,7 @@
 # Digitest Debug System Plugin for Joomla
 
-**DigitestDebug** is a lightweight, high-performance system plugin designed for Joomla 4, 5, and 6. It provides real-time frontend debugging parameters, environment metrics, performance analytics, and MIME-type resource tracking specifically tailored for custom framework-free template developers.
+**DigitestDebug** **DigitestDebug** is a lightweight, high-performance system plugin designed for Joomla 4, 5, and 6. It provides real-time frontend debugging parameters, environment metrics, assigned CSS classes, performance analytics, and MIME-type resource tracking specifically tailored for custom framework-free template developers. All debug output is dynamically appended to the end of the page's `<body>` element.
+
 ![Digitest Debug panel](demo/output-demo.jpg)
 
 ---
