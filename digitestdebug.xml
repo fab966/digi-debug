@@ -2,18 +2,18 @@
 <extension version="5.0" type="plugin" group="system" method="upgrade">
 	<name>Digitest Debug</name>
 	<author>F.Galuppi - Digitest.net</author>
-	<creationDate>Mar 2026</creationDate>
+	<creationDate>Oct 2026</creationDate>
 	<copyright>Copyright (C) 2026 - 2030 Digitest.net. All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>public2@digitest.net</authorEmail>
 	<authorUrl>www.digitest.net</authorUrl>
-	<version>3.1.1</version>
+	<version>3.1.2</version>
 	<namespace path="src">Digitest\Plugin\System\DigitestDebug</namespace>
 	<description>
 		<![CDATA[
 		<p style="float:left">Digitest Debug Plugin - My Debug and Environment Controller<br />
 		Do not forget to set your UserID (or IDs) in the PlugIn parameters<br /><br /><br />
-  		Actual version 3.1.1 - J6.</p>
+  		Actual version 3.1.2 - J6.</p>
 		<p style="float:right"><img src="/plugins/system/digitestdebug/assets/app_ico_120.jpg" /></p>
   		<p style="clear:both">&nbsp;</p>
 	]]>
@@ -27,17 +27,50 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="myUserIds" type="text" label="User/s ID(s)" description="Users ID who have to see Debug lines. More IDs comma separated" default="" />
-
-				<field name="ModPosCounter" type="text" label="Module Pos. to Count" description="Write here Template Position if you have to count how many Modules are on a this position" default="" />
-
-				<field name="textColor" type="color" default="#444" label="Text Color" description="Change the color of text for a better contrast with background color of your template" />
-
-				<field name="bkgColor" type="color" default="#ffffff" label="Background Color" description="Change the color of background" />
-				<field name="showTemplateParams" type="radio" label="Mostra Parametri Template" description="" class="btn-group btn-group-yesno" default="0">
+				<field name="myUserIds"
+					type="text"
+					label="User/s ID(s)"
+					description="Users ID who have to see Debug lines. More IDs comma separated"
+					default=""
+				/>
+				<field name="ModPosCounter" 
+					type="text"
+					label="Module Pos. to Count"
+					description="Write here Template Position if you have to count how many Modules are on a this position"
+					default=""
+				/>
+				<field name="textColor"
+					type="color"
+					default="#444"
+					label="Text Color"
+					description="Change the color of text for a better contrast with background color of your template"
+				/>
+				<field name="bkgColor"
+					type="color"
+					default="#ffffff"
+					label="Background Color"
+					description="Change the color of background"
+				/>
+				<field name="showTemplateParams"
+					type="radio"
+					label="Show Template Params"
+					description="For Digitest.net Templates only"
+					class="btn-group btn-group-yesno"
+					default="0"
+				>
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+				<field name="check_missing_assets" 
+            		type="radio" 
+            		label="Missing Assets" 
+            		description="Enable Console Analysis in the Web Tools for any missing files or wrong paths" 
+            		class="btn-group btn-group-yesno" 
+            		default="0"
+        		>
+            		<option value="0">JNO</option>
+            		<option value="1">JYES</option>
+        		</field>
 			</fieldset>
 		</fields>
 	</config>
