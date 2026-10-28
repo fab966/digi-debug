@@ -287,7 +287,7 @@ class DigitestDebug extends CMSPlugin {
 			$contenuto .= '<br/ ><span style="color:red;">It is time to upgrade your server to PHP8 !!!</span>';
 		}
 		
-        $contenuto .= '<br/ >PLG Digitest Debug ver. 3.1.1';
+        $contenuto .= '<br/ >PLG Digitest Debug ver. 3.1.2';
 		$contenuto .= '<br /></div></div>';
 
         // Final injection (Correct for J6)
